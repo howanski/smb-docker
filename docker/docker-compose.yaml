@@ -9,7 +9,6 @@ services:
     volumes:
       - ./../data:/samba:ro
     restart: always
-    privileged: true
     network_mode: host
     logging:
       driver: json-file
