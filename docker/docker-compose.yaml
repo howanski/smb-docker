@@ -1,0 +1,18 @@
+# https://github.com/compose-spec/compose-spec/blob/master/spec.md
+version: '3.5'
+services:
+  smb-guest-server:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: "smb-guest-server"
+    volumes:
+      - ./../data:/samba:ro
+    restart: always
+    privileged: true
+    network_mode: host
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
